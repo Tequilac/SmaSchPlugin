@@ -49,11 +49,11 @@ func (s *CustomScheduler) Score(ctx context.Context, _ *framework.CycleState, _ 
 	}
 	switch labels["sma-temp"] {
 	case "", "sma-temp-low":
-		sum += 0
+		sum += 5
 	case "sma-temp-mid":
 		sum += 3
 	case "sma-temp-high":
-		sum += 5
+		sum += 0
 	}
 	return sum, nil
 }
