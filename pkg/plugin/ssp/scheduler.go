@@ -16,7 +16,7 @@ type CustomScheduler struct {
 	handle framework.Handle
 }
 
-// Let the type CustomScheduler implement the QueueSortPlugin, PreFilterPlugin interface
+// Let the type CustomScheduler implement the ScorePlugin interface
 var _ framework.ScorePlugin = &CustomScheduler{}
 
 // Name ... Implement Plugin interface Name() @pkg/scheduler/framework/v1alpha1/interface.go
