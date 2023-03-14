@@ -45,7 +45,7 @@ spec:
             name: scheduler-config
       containers:
         - name: ssp-scheduler-pod
-          image:
+          image: tequilac/ssp-scheduler:latest
           imagePullPolicy: IfNotPresent
           args:
             - ssp-scheduler
