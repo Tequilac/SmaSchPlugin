@@ -30,6 +30,11 @@ func (s *CustomScheduler) Score(ctx context.Context, _ *framework.CycleState, _ 
 		return 0, nil
 	}
 	var labels = node.Labels
+
+	if labels["sma-freeze"] == "sma-freeze" {
+		return 0, nil
+	}
+
 	var sum int64 = 0
 	switch labels["sma-mem"] {
 	case "", "sma-mem-low":
