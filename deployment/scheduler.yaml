@@ -9,10 +9,6 @@ data:
     kind: KubeSchedulerConfiguration
     profiles:
       - schedulerName: ssp-scheduler
-        leaderElection:
-          leaderElect: true
-          lockObjectName: ssp-scheduler
-          lockObjectNamespace: kube-system
         plugins:
           score:
             enabled:
@@ -20,6 +16,10 @@ data:
         pluginConfig:
         - name: "ssp-scheduler"
           args: {"master": "master", "kubeconfig": "kubeconfig"}
+    leaderElection:
+      leaderElect: true
+      lockObjectName: ssp-scheduler
+      lockObjectNamespace: kube-system
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -38,7 +38,7 @@ spec:
       labels:
         component: ssp-scheduler
     spec:
-      serviceAccount: ssp-sa
+      serviceAccountName: ssp-sa
       priorityClassName: system-cluster-critical
       volumes:
         - name: scheduler-config
