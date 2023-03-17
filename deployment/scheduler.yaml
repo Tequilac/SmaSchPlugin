@@ -18,8 +18,8 @@ data:
           args: {"master": "master", "kubeconfig": "kubeconfig"}
     leaderElection:
       leaderElect: true
-      lockObjectName: ssp-scheduler
-      lockObjectNamespace: kube-system
+      resourceName: ssp-scheduler
+      resourceNamespace: kube-system
 ---
 apiVersion: apps/v1
 kind: Deployment
