@@ -112,6 +112,8 @@ rules:
     resources:
       - storageclasses
       - csinodes
+      - csidrivers
+      - csistoragecapacities
     verbs:
       - get
       - list
